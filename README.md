@@ -1,1 +1,1 @@
-![RL Agent Architecture](architecture.png)
+![RL Agent Architecture](architecture.jpeg)
