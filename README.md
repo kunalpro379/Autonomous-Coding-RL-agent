@@ -74,4 +74,3 @@ Each run typically produces or updates a folder such as `workspace_sandbox/<proj
 **Terminal run**
 
 ![Terminal output from the agent pipeline](terminal.png)
-
