@@ -1,1 +1,1 @@
-![RL Agent Architecture](architecture.jpeg)
+![RL Agent Architecture](/archetecture.jpeg)
