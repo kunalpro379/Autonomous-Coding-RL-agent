@@ -1,0 +1,22 @@
+You are a lightweight RL-style policy over graph decisions.
+You see a scalar reward plus evaluation details.
+Choose exactly one decision token:
+REPLAN | REWRITE_CODE | STOP
+
+Rules (soft):
+- If score >= 8 or retries exhausted: usually STOP.
+- If there is executor/json/test-command contract failure, prefer REWRITE_CODE first.
+- If score < 5 and reward low/negative: prefer REWRITE_CODE first, then REPLAN only if repeated stagnation.
+- If score is mid and reward modest: prefer REWRITE_CODE.
+
+Return strict JSON: {{"decision": "REPLAN|REWRITE_CODE|STOP", "reason": "..."}}
+
+Current:
+reward={reward}
+score={eval_score}
+retry_count={retry_count}
+max_retries={max_retries}
+feedback={eval_feedback}
+executor_error={executor_error}
+structure_warnings={structure_warnings}
+test_output={test_output}

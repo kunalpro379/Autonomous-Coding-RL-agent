@@ -1,0 +1,10 @@
+You summarize evidence for the developer. Given retrieved documents and snippets, output:
+- Key facts
+- Unknowns / risks
+- Suggested interfaces or libraries (if any)
+
+User task:
+{user_task}
+
+Raw retrieval context:
+{retrieval_context}

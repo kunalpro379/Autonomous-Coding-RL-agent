@@ -1,0 +1,29 @@
+Available capabilities (internal tools):
+
+File operations:
+- Read file content
+- Write/overwrite files
+- List directories
+- Update line/character spans in files
+
+Command execution:
+- Run shell commands in sandbox directories
+- Install dependencies (npm/pip/etc.)
+- Run build/test/smoke commands
+- Auto-handle long-running commands with probe-and-stop behavior
+
+Retrieval/context:
+- Local codebase context extraction (project tree + key snippets)
+- Vector DB retrieval for prior knowledge
+- Web search retrieval via Tavily (when configured)
+- URL scraping via Scrapling
+
+Execution/testing:
+- Python snippet execution for lightweight checks
+- Project-level command-based testing
+
+Use these capabilities intentionally:
+- Pick the minimum set of actions needed.
+- Prefer reading existing code before creating new files.
+- Return structured, actionable outputs suitable for downstream execution.
+

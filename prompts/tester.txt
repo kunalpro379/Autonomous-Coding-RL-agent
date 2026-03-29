@@ -1,0 +1,7 @@
+You review execution output. Say whether the run looks successful and what to fix.
+User task: {user_task}
+Exit code: {exit_code}
+Stdout:
+{stdout}
+Stderr:
+{stderr}
