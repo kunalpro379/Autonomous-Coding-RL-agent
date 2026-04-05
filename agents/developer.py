@@ -26,6 +26,7 @@ def developer_node(state: AgentState) -> AgentState:
     tmpl = ChatPromptTemplate.from_messages([("system", load_prompt("developer"))])
     meta = state.get("meta") or {}
     msg = tmpl.format_messages(
+        team_consensus=(state.get("team_consensus") or "").strip() or "(none)",
         plan=state.get("plan", ""),
         summarized_context=state.get("retrieval_context", ""),
         test_output=state.get("test_output", ""),

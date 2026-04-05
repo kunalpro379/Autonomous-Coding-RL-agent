@@ -4,10 +4,12 @@ from agents.executor import executor_node
 from agents.planner import planner_node
 from agents.retriever import retriever_node
 from agents.rl_agent import rl_node
+from agents.team_panel import team_panel_node
 from agents.tester import tester_node
 
 __all__ = [
     "planner_node",
+    "team_panel_node",
     "retriever_node",
     "developer_node",
     "executor_node",

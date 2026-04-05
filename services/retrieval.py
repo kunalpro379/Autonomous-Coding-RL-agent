@@ -5,6 +5,7 @@ from urllib.parse import urlparse
 
 from config.settings import settings
 from services.vector_store import VectorStoreService
+from services.vectorless_rag import build_vectorless_code_context
 from tools.scrape_url import scrape_url_to_text
 from tools.tavily import list_tavily_tool, normalize_tavily_documents
 
@@ -16,7 +17,11 @@ class RetrievalService:
     def build_context(self, user_task: str) -> str:
         chunks: list[str] = []
 
-        if _should_use_local_context(user_task):
+        if getattr(settings, "vectorless_rag_enabled", True):
+            vl = build_vectorless_code_context(user_task, settings.workspace_root)
+            if vl.strip():
+                chunks.append("### Vectorless code RAG (tree + keyword-ranked excerpts)\n" + vl)
+        elif _should_use_local_context(user_task):
             local_ctx = _collect_local_codebase_context(settings.workspace_root)
             if local_ctx.strip():
                 chunks.append("### Existing local codebase\n" + local_ctx)

@@ -12,9 +12,13 @@ from states.graph_state import AgentState
 
 
 def retriever_node(state: AgentState) -> AgentState:
-    print("[retriever] building context (local codebase + vectordb + tavily + scrape)")
+    print("[retriever] building context (vectorless RAG + vectordb + tavily + scrape)")
     service = RetrievalService()
-    raw = service.build_context(state.get("user_task", ""))
+    task = state.get("user_task", "") or ""
+    consensus = (state.get("team_consensus") or "").strip()
+    if consensus:
+        task = f"{task}\n\n### Team panel consensus (use for retrieval focus)\n{consensus[:6000]}"
+    raw = service.build_context(task)
     print(f"[retriever] raw_chars={len(raw or '')}")
 
     llm = chat_llm(temperature=0.1)

@@ -3,6 +3,8 @@ You summarize evidence for the developer. Given retrieved documents and snippets
 - Unknowns / risks
 - Suggested interfaces or libraries (if any)
 
+If the raw context includes "Vectorless code RAG", it has a repo tree and keyword-ranked excerpts (signatures + truncated files). Use those paths when recommending concrete edits.
+
 User task:
 {user_task}
 

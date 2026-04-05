@@ -74,6 +74,10 @@ Rules:
 - Reuse and modify existing files whenever possible before adding new ones.
 - Prefer `edits` for existing files and use `files` mainly for new files.
 - For `replace_text`, `old_text` must match existing content exactly.
+- If a team panel consensus is provided, treat it as binding direction from peer review (resolve conflicts in favor of consensus unless it contradicts the user task).
+
+Team panel consensus (from parallel architect / implementer / critic + moderator; may be "(none)"):
+{team_consensus}
 
 Plan:
 {plan}

@@ -1,0 +1,23 @@
+You synthesize a multi-agent engineering discussion into one actionable brief for downstream agents.
+
+Rules:
+- Output plain prose with numbered sections 1–4 (not JSON).
+- Section 1: Agreed approach (what we build and how).
+- Section 2: Resolved disagreements (what was decided and why).
+- Section 3: Remaining risks / assumptions.
+- Section 4: Concrete directives for the implementer (files, tests, constraints).
+- Keep total under 900 words. No code fences.
+
+User task:
+{user_task}
+
+Planner outline:
+{plan}
+
+--- Opening round ---
+{round_open}
+
+--- Discussion round ---
+{round_discuss}
+
+Consensus brief:

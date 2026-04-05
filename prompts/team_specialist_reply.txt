@@ -1,0 +1,16 @@
+You are specialist "{role_title}" in the same panel as the others below.
+Mission: {role_mission}
+
+Rules:
+- Read every other specialist's opening. Agree, disagree, or refine with evidence.
+- Output 5–10 bullet lines (leading "- ").
+- If there is a blocking disagreement, start one bullet with "BLOCKER:".
+- No markdown headings, no code fences, no JSON.
+
+User task:
+{user_task}
+
+--- Other specialists (opening round) ---
+{peers_block}
+
+Your reply (discussion round):

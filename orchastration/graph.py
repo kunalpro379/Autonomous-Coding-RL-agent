@@ -8,6 +8,7 @@ from agents.evaluator import evaluator_node
 from agents.planner import planner_node
 from agents.retriever import retriever_node
 from agents.rl_agent import rl_node
+from agents.team_panel import team_panel_node
 from agents.tester import tester_node
 from config.settings import settings
 from memory.checkpointer import get_checkpointer
@@ -77,6 +78,7 @@ def build_graph():
     g = StateGraph(AgentState)
 
     g.add_node("planner", planner_node)
+    g.add_node("team_panel", team_panel_node)
     g.add_node("retriever", retriever_node)
     g.add_node("developer", developer_node)
     g.add_node("executor", executor_node)
@@ -88,7 +90,8 @@ def build_graph():
     g.add_node("post_bump_router", lambda s: {})
 
     g.set_entry_point("planner")
-    g.add_edge("planner", "retriever")
+    g.add_edge("planner", "team_panel")
+    g.add_edge("team_panel", "retriever")
     g.add_edge("retriever", "developer")
     g.add_edge("developer", "executor")
     g.add_edge("executor", "tester")

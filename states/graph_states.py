@@ -12,6 +12,8 @@ class AgentState(TypedDict, total=False):
     messages: Annotated[list[BaseMessage], operator.add]
     user_task: str
     plan: str
+    team_consensus: str
+    team_transcript: str
     retrieval_context: str
     code: str
     test_output: str
